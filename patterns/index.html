@@ -1,0 +1,272 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>CloudKitect Patterns - v2.93.0</title><meta name="description" content="Documentation for CloudKitect Patterns - v2.93.0"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base=".">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">CloudKitect Patterns - v2.93.0</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-8 col-content">
+<div class="tsd-page-title">
+<h2>CloudKitect Patterns - v2.93.0</h2></div>
+<div class="tsd-panel tsd-typography">
+<a href="#cloudkitect-patterns" id="cloudkitect-patterns" style="color: inherit; text-decoration: none;">
+  <h1>CloudKitect Patterns</h1>
+</a>
+<p>This is the documentation of CloudKitect Patterns provided by CloudKitect Inc. </p>
+<p>This project is an invaluable resource for startups and small-to-medium businesses (SMBs) 
+poised to embark on a journey of application modernization to the cloud.
+CloudKitect Patterns provide expertly crafted architectures to accelerate your cloud migration, 
+taking you from conception to full cloud integration in a matter of hours instead of months. 
+With CloudKitect Patterns, you&#39;re equipped to establish a fully compliant, cloud-native infrastructure 
+using just a few lines of code. For more in-depth insights into the benefits and capabilities 
+of CloudKitect Patterns, please visit our website at cloudkitect.com.</p>
+
+<a href="#onboarding-process" id="onboarding-process" style="color: inherit; text-decoration: none;">
+  <h2>OnBoarding Process</h2>
+</a>
+<p>In order to access CloudKitect Patterns customer need to be onboarded. For on-boarding customers provide their AWS account ID 
+to be added to CloudKitect managed AWS Code Artifactory. If you would like to be on-boarded in order 
+to use CloudKitect please email <a href="mailto:info@cloudkitect.com">info@cloudkitect.com</a></p>
+
+<a href="#local-environment-configuration" id="local-environment-configuration" style="color: inherit; text-decoration: none;">
+  <h3>Local Environment Configuration</h3>
+</a>
+<p>After on-boarding customer will update npm config file to use CloudKitect managed AWS Code Artifactory as their npm registry</p>
+<p>Edit .npmrc file to add the following entry</p>
+<pre><code class="language-shell"><span class="hl-0">registry</span><span class="hl-1">=</span><span class="hl-2">https://cloudkitect-ACCOUNT_ID.d.codeartifact.us-east-1.amazonaws.com/npm/cloudkitect-artifacts/</span>
+</code></pre>
+
+<a href="#configure-aws-cli" id="configure-aws-cli" style="color: inherit; text-decoration: none;">
+  <h3>Configure AWS CLI</h3>
+</a>
+<p>Then AWS cli needs to be configured with credentials for the customer AWS Account used for on-boarding</p>
+<pre><code class="language-shell"><span class="hl-1">aws </span><span class="hl-2">configure</span><span class="hl-1"> </span><span class="hl-2">--profile</span><span class="hl-1"> </span><span class="hl-2">npmregistry</span>
+</code></pre>
+
+<a href="#login-to-code-artifactory" id="login-to-code-artifactory" style="color: inherit; text-decoration: none;">
+  <h3>Login to Code Artifactory</h3>
+</a>
+<p>Then use the following command to login to CloudKitect managed AWS Code Artifactory</p>
+<pre><code class="language-shell"><span class="hl-1">aws </span><span class="hl-2">codeartifact</span><span class="hl-1"> </span><span class="hl-2">login</span><span class="hl-1"> </span><span class="hl-2">--tool</span><span class="hl-1"> </span><span class="hl-2">npm</span><span class="hl-1"> </span><span class="hl-2">--domain</span><span class="hl-1"> </span><span class="hl-2">cloudkitect</span><span class="hl-1"> </span><span class="hl-2">--domain-owner</span><span class="hl-1"> </span><span class="hl-2">CLOUDKITECT_AWS_ACCOUNT_ID</span><span class="hl-1"> </span><span class="hl-2">--repository</span><span class="hl-1"> </span><span class="hl-2">--profile</span><span class="hl-1"> </span><span class="hl-2">npmregistry</span><span class="hl-1"> </span><span class="hl-2">cloudkitect-artifacts</span><span class="hl-1"> </span><span class="hl-2">--region</span><span class="hl-1"> </span><span class="hl-2">us-east-</span><span class="hl-3">1</span><br/>
+</code></pre>
+
+<a href="#create-a-cdk-project" id="create-a-cdk-project" style="color: inherit; text-decoration: none;">
+  <h3>Create a CDK project</h3>
+</a>
+<p>Once the login is successful, you can create a new CDK project by running the following commands</p>
+<pre><code class="language-shell"><span class="hl-1">cdk </span><span class="hl-2">init</span><span class="hl-1"> </span><span class="hl-2">app</span><span class="hl-1"> </span><span class="hl-2">--language</span><span class="hl-1"> </span><span class="hl-2">typescript</span>
+</code></pre>
+<p>This will create a bare bone CDK project.</p>
+
+<a href="#adding-cloudkitect-patterns-dependency" id="adding-cloudkitect-patterns-dependency" style="color: inherit; text-decoration: none;">
+  <h3>Adding CloudKitect Patterns dependency</h3>
+</a>
+<p>Open CDK project in your favorite IDE and goto package.json file to add the CloudKitect dependency</p>
+<pre><code class="language-json"><span class="hl-1">{</span><br/><span class="hl-1">   </span><span class="hl-4">&quot;dependencies&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">      </span><span class="hl-4">&quot;@cloudkitect/patterns&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;CURRENT_VERSION&quot;</span><br/><span class="hl-1">   }</span><br/><span class="hl-1">}</span>
+</code></pre>
+
+<a href="#install-dependencies" id="install-dependencies" style="color: inherit; text-decoration: none;">
+  <h2>Install Dependencies</h2>
+</a>
+<p>Once package.json file is updated, you can install the dependencies by running the following commands</p>
+<pre><code class="language-shell"><span class="hl-1">npm </span><span class="hl-2">install</span>
+</code></pre>
+
+<a href="#building-javanetpythonjavascript-distribution" id="building-javanetpythonjavascript-distribution" style="color: inherit; text-decoration: none;">
+  <h3>Building Java/.Net/Python/Javascript Distribution</h3>
+</a>
+<p>Make sure you have the following installed locally</p>
+<ul>
+<li>Java version 8 install</li>
+<li>Maven installed</li>
+<li>DotNet 6.0 or later installed</li>
+<li>Python3 installed</li>
+<li>pip3 installed</li>
+<li>pip symlinked to pip3</li>
+</ul>
+<p>You can also use docker superchain if it has all the required packages, current version is on older .NetCore (3.1)</p>
+<pre><code class="language-shell"><span class="hl-1">docker </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">-it</span><span class="hl-1"> </span><span class="hl-2">--rm</span><span class="hl-1"> </span><span class="hl-2">--entrypoint</span><span class="hl-1"> </span><span class="hl-2">sh</span><span class="hl-1"> </span><span class="hl-2">-v</span><span class="hl-1"> </span><span class="hl-2">$(</span><span class="hl-5">pwd</span><span class="hl-2">)/wa-cdk:/wa-cdk</span><span class="hl-1"> </span><span class="hl-2">jsii/superchain:</span><span class="hl-3">1</span><span class="hl-2">-buster-slim-node16</span>
+</code></pre>
+
+<a href="#run-jsii-build" id="run-jsii-build" style="color: inherit; text-decoration: none;">
+  <h3>Run JSII Build</h3>
+</a>
+<pre><code class="language-shell"><span class="hl-1">npm </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">jsii-build</span>
+</code></pre>
+
+<a href="#build-packages-for-all-languages" id="build-packages-for-all-languages" style="color: inherit; text-decoration: none;">
+  <h3>Build Packages for all languages</h3>
+</a>
+<p>In order to build packages each language has a different configuration setup to use CloudKitect codeartifact as its
+repository source.</p>
+
+<a href="#dotnet" id="dotnet" style="color: inherit; text-decoration: none;">
+  <h4>DotNet</h4>
+</a>
+<pre><code class="language-shell"><span class="hl-1">aws </span><span class="hl-2">codeartifact</span><span class="hl-1"> </span><span class="hl-2">login</span><span class="hl-1"> </span><span class="hl-2">--tool</span><span class="hl-1"> </span><span class="hl-2">dotnet</span><span class="hl-1"> </span><span class="hl-2">--domain</span><span class="hl-1"> </span><span class="hl-2">cloudkitect</span><span class="hl-1"> </span><span class="hl-2">--domain-owner</span><span class="hl-1"> </span><span class="hl-3">175815161984</span><span class="hl-1"> </span><span class="hl-2">--repository</span><span class="hl-1"> </span><span class="hl-2">cloudkitect-artifacts</span><span class="hl-1"> </span><span class="hl-2">--region</span><span class="hl-1"> </span><span class="hl-2">us-east-</span><span class="hl-3">1</span><span class="hl-1">  </span><span class="hl-2">—profile</span><span class="hl-1"> </span><span class="hl-2">repo</span>
+</code></pre>
+
+<a href="#python" id="python" style="color: inherit; text-decoration: none;">
+  <h4>Python</h4>
+</a>
+<pre><code class="language-shell"><span class="hl-1">aws </span><span class="hl-2">codeartifact</span><span class="hl-1"> </span><span class="hl-2">login</span><span class="hl-1"> </span><span class="hl-2">--tool</span><span class="hl-1"> </span><span class="hl-2">pip</span><span class="hl-1"> </span><span class="hl-2">--domain</span><span class="hl-1"> </span><span class="hl-2">cloudkitect</span><span class="hl-1"> </span><span class="hl-2">--domain-owner</span><span class="hl-1"> </span><span class="hl-3">175815161984</span><span class="hl-1"> </span><span class="hl-2">--repository</span><span class="hl-1"> </span><span class="hl-2">cloudkitect-artifacts</span><span class="hl-1"> </span><span class="hl-2">--region</span><span class="hl-1"> </span><span class="hl-2">us-east-</span><span class="hl-3">1</span><span class="hl-1"> </span><span class="hl-2">--profile</span><span class="hl-1"> </span><span class="hl-2">repo</span>
+</code></pre>
+
+<a href="#java" id="java" style="color: inherit; text-decoration: none;">
+  <h4>Java</h4>
+</a>
+<p>Currently, there is no way to configure Maven to talk to codeartifact, logged a bug with JSII packmak project</p>
+
+<a href="#typescript-and-javascript" id="typescript-and-javascript" style="color: inherit; text-decoration: none;">
+  <h4>Typescript and Javascript</h4>
+</a>
+<pre><code class="language-shell"><span class="hl-1">aws </span><span class="hl-2">codeartifact</span><span class="hl-1"> </span><span class="hl-2">login</span><span class="hl-1"> </span><span class="hl-2">--tool</span><span class="hl-1"> </span><span class="hl-2">npm</span><span class="hl-1"> </span><span class="hl-2">--domain</span><span class="hl-1"> </span><span class="hl-2">cloudkitect</span><span class="hl-1"> </span><span class="hl-2">--domain-owner</span><span class="hl-1"> </span><span class="hl-3">175815161984</span><span class="hl-1"> </span><span class="hl-2">--repository</span><span class="hl-1"> </span><span class="hl-2">cloudkitect-artifacts</span><span class="hl-1"> </span><span class="hl-2">--region</span><span class="hl-1"> </span><span class="hl-2">us-east-</span><span class="hl-3">1</span><span class="hl-1"> </span><span class="hl-2">--profile</span><span class="hl-1"> </span><span class="hl-2">repo</span>
+</code></pre>
+<p>After all the logins are successful you can run the following command to create packages.</p>
+<pre><code class="language-shell"><span class="hl-1">npm </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">package</span>
+</code></pre>
+
+<a href="#release-java-jsii-packages" id="release-java-jsii-packages" style="color: inherit; text-decoration: none;">
+  <h3>Release Java JSII Packages</h3>
+</a>
+<p>Run the following script, once the packages are build in dist folder, update the version in the script</p>
+<pre><code class="language-shell"><span class="hl-5">.</span><span class="hl-1">/publish-java.sh</span>
+</code></pre>
+
+<a href="#release-nuget-jsii-packages" id="release-nuget-jsii-packages" style="color: inherit; text-decoration: none;">
+  <h3>Release Nuget JSII Packages</h3>
+</a>
+<p>Run the following script, once the packages are build in dist folder, update the version in the script</p>
+<pre><code class="language-shell"><span class="hl-5">.</span><span class="hl-1">/publish-nuget.sh</span>
+</code></pre>
+
+<a href="#release-python-jsii-packages" id="release-python-jsii-packages" style="color: inherit; text-decoration: none;">
+  <h3>Release Python JSII Packages</h3>
+</a>
+<p>Run the following script, once the packages are build in dist folder, update the version in the script</p>
+<pre><code class="language-shell"><span class="hl-5">.</span><span class="hl-1">/publish-pypi.sh</span>
+</code></pre>
+
+<a href="#release-npm-jsii-packages" id="release-npm-jsii-packages" style="color: inherit; text-decoration: none;">
+  <h3>Release NPM JSII Packages</h3>
+</a>
+<pre><code class="language-shell"><span class="hl-5">.</span><span class="hl-1">/publish-js.sh</span>
+</code></pre>
+<p>For some reason the following script did not work for NPM, i had to put in AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN and AWS_ACCESS_KEY_ID
+and then ran the</p>
+<pre><code class="language-shell"><span class="hl-1">npx </span><span class="hl-2">publib-npm</span>
+</code></pre>
+
+<a href="#using-well-architected-cdk-constructs" id="using-well-architected-cdk-constructs" style="color: inherit; text-decoration: none;">
+  <h2>Using Well Architected CDK constructs</h2>
+</a>
+<p>Now that you have all the constructs available from CloudKitect, use them just like any other CDK construct</p>
+<p>For example the below code snippet we are using Build a secure and compliant serverless API infrastructure.</p>
+<pre><code class="language-ts"><span class="hl-6">import</span><span class="hl-1"> {</span><span class="hl-0">RestApi</span><span class="hl-1">} </span><span class="hl-6">from</span><span class="hl-1"> </span><span class="hl-2">&quot;aws-cdk-lib/aws-apigateway&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-7">new</span><span class="hl-1"> </span><span class="hl-5">CpRestApi</span><span class="hl-1">(</span><span class="hl-7">this</span><span class="hl-1">, </span><span class="hl-2">&quot;MyApis&quot;</span><span class="hl-1">, {</span><br/><span class="hl-1">  </span><span class="hl-0">cpDomainName:</span><span class="hl-1"> </span><span class="hl-2">&quot;example.com&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">cpSubDomain:</span><span class="hl-1"> </span><span class="hl-2">&quot;test-api&quot;</span><br/><span class="hl-1">})</span>
+</code></pre>
+
+<a href="#cloudkitect-component-version-updates" id="cloudkitect-component-version-updates" style="color: inherit; text-decoration: none;">
+  <h3>CloudKitect Component Version Updates</h3>
+</a>
+<p>The version of all CDK packages are fixed to the same version. If an
+upgrade is desired, please make sure that all CDK packages are upgraded
+to the same version at the same time. Different versions of CDK mixed
+in the project may cause type incompatibilities.</p>
+
+<a href="#how-to-set-up-cicd-pipeline-for-management-account" id="how-to-set-up-cicd-pipeline-for-management-account" style="color: inherit; text-decoration: none;">
+  <h2>How to set up CICD pipeline for management account</h2>
+</a>
+<p>This class is used to setup the management account and the organizational structure based on the best practice recommendations.
+Before using CpOrganizationalSetup the following steps need to be performed.</p>
+<ul>
+<li>Create an AWS account, which will be used as management account.</li>
+<li>Create admin user and admin group</li>
+<li>Create access keys for admin user</li>
+<li>Configure your local environment for using access keys by running the following command.<ul>
+<li>aws configure --profile management</li>
+</ul>
+</li>
+<li>Login to AWS console using admin user</li>
+<li>Create and download git credentials</li>
+<li>Allow access to code artifact domain and on the artifact in CloudKitect Repo for the management account</li>
+<li>Create code commit repo in management account to hold management account source code.</li>
+<li>Clone the repo to your local environment and configure to push code </li>
+<li>Create SNS test topic to create kms keys in management account</li>
+<li>Create pipeline project for setting up pipeline in management account. This pipeline will be used to deploy the management account setup stack</li>
+<li>Botstrap management account for cdk<ul>
+<li>cdk bootstrap --profile management</li>
+</ul>
+</li>
+<li>Deploy management account setup pipeline<ul>
+<li>cdk deploy --profile management</li>
+</ul>
+</li>
+<li>This will be the only time you need to deploy from your local environment</li>
+<li>Add the stage to the pipeline with the management account setup stack</li>
+<li>Commit your code</li>
+<li>Pipeline should detect the new commit and start the deployment of management account setup stack</li>
+</ul>
+</div></div>
+<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<nav class="tsd-navigation primary">
+<details class="tsd-index-accordion" open><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Modules</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li class="current selected"><a href="modules.html">Cloud<wbr/>Kitect <wbr/>Patterns -<wbr/> v2.93.0</a>
+<ul></ul></li></ul></div></details></nav>
+<nav class="tsd-navigation secondary menu-sticky">
+<ul>
+<li class="tsd-kind-enum"><a href="enums/CpOrganizationalUnits.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-enum)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-8-path"></rect><path d="M9.45 16V7.24H14.49V8.224H10.518V10.936H14.07V11.908H10.518V15.016H14.49V16H9.45Z" fill="var(--color-text)" id="icon-8-text"></path></svg>Cp<wbr/>Organizational<wbr/>Units</a></li>
+<li class="tsd-kind-class"><a href="classes/CpAccountSetup.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-128-path"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)" id="icon-128-text"></path></svg>Cp<wbr/>Account<wbr/>Setup</a></li>
+<li class="tsd-kind-class"><a href="classes/CpBackup.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Backup</a></li>
+<li class="tsd-kind-class"><a href="classes/CpEventSource.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Event<wbr/>Source</a></li>
+<li class="tsd-kind-class"><a href="classes/CpManagementAccountSetup.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Management<wbr/>Account<wbr/>Setup</a></li>
+<li class="tsd-kind-class"><a href="classes/CpOrganizationSetup.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Organization<wbr/>Setup</a></li>
+<li class="tsd-kind-class"><a href="classes/CpRdsInitializer.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Rds<wbr/>Initializer</a></li>
+<li class="tsd-kind-class"><a href="classes/CpRestApi.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Rest<wbr/>Api</a></li>
+<li class="tsd-kind-class"><a href="classes/CpSSOSetup.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>CpSSOSetup</a></li>
+<li class="tsd-kind-class"><a href="classes/CpServerlessContainerApp.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Serverless<wbr/>Container<wbr/>App</a></li>
+<li class="tsd-kind-class"><a href="classes/CpSesSetup.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Ses<wbr/>Setup</a></li>
+<li class="tsd-kind-class"><a href="classes/CpUtils.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Utils</a></li>
+<li class="tsd-kind-class"><a href="classes/CpVirusScanner.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Virus<wbr/>Scanner</a></li>
+<li class="tsd-kind-class"><a href="classes/CpWebsite.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Website</a></li>
+<li class="tsd-kind-class"><a href="classes/CpWorkload.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Cp<wbr/>Workload</a></li>
+<li class="tsd-kind-class"><a href="classes/EmailParser.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Email<wbr/>Parser</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpAccountProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-256-path"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)" id="icon-256-text"></path></svg>Cp<wbr/>Account<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpAccountSetupProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Account<wbr/>Setup<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpBackupProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Backup<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpEventSourceProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Event<wbr/>Source<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpManagementAccountSetupProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Management<wbr/>Account<wbr/>Setup<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpOrganizationSetupProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Organization<wbr/>Setup<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpRdsInitializerProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Rds<wbr/>Initializer<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpRestApiProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Rest<wbr/>Api<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpSSOSetupProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>CpSSOSetup<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpServerlessContainerAppProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Serverless<wbr/>Container<wbr/>App<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpServiceProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Service<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpSesSetupProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Ses<wbr/>Setup<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpVirusScannerProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Virus<wbr/>Scanner<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/CpWebSiteProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Cp<wbr/>Web<wbr/>Site<wbr/>Props</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/InfrastructureOUResponse.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>InfrastructureOUResponse</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/SecurityOUResponse.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>SecurityOUResponse</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/Service.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Service</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/X8WorkloadProps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>X8<wbr/>Workload<wbr/>Props</a></li></ul></nav></div></div>
+<div class="container tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div><script src="assets/main.js"></script></body></html>
